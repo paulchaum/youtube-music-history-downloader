@@ -77,7 +77,7 @@ def main():
 
 if __name__ == "__main__":
     # Schedule the download_history function to run every N minutes
-    schedule.every(int(os.environ.get("SLEEP_MINUTES", "240"))).minutes.do(main)
+    schedule.every(int(os.environ.get("SCHEDULE_MINUTES", "240"))).minutes.do(main)
 
     # Run main() at the start
     main()
@@ -85,4 +85,8 @@ if __name__ == "__main__":
     # Keep the script running
     while True:
         schedule.run_pending()
-        time.sleep(1)
+        time.sleep(int(os.environ.get("SLEEP_SECONDS", "60")))
+        time_of_next_run = schedule.next_run()
+        time_now = datetime.now()
+        time_remaining = time_of_next_run - time_now
+        print(f"Next run at {time_of_next_run} (time remaining: {time_remaining})")

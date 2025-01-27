@@ -52,7 +52,8 @@ Before installing the script, you need to create a Google API key:
    docker run -it \
    -v "$(pwd)/config:/app/config" \
    -v "$(pwd)/output:/app/output" \
-   -e SLEEP_MINUTES=240 \
+   -e SCHEDULE_MINUTES=240 \
+   -e SLEEP_SECONDS=60 \
    youtube-music-history-downloader
    ```
    On first use, a message will appear to activate your Google account.
@@ -69,7 +70,8 @@ Before installing the script, you need to create a Google API key:
        image: youtube-music-history-downloader
        container_name: youtube-music-history-downloader
        environment:
-         SLEEP_MINUTES: "240"
+         SCHEDULE_MINUTES: "240"
+         SLEEP_SECONDS: "60"
        volumes:
          - ./config:/app/config
          - ./output:/app/output
