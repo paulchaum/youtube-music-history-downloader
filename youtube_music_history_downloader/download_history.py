@@ -39,22 +39,16 @@ def download_history():
 
 
     output_template = output_dir / "%(title)s.%(ext)s"
+    if (config.ROOT_DIR / "config/ydl_options.custom.json").exists():
+        with open(config.ROOT_DIR / "config/ydl_options.custom.json", "a") as f:
+            local_options = json.load(f)
+    else:
+        with open(config.ROOT_DIR / "config/ydl_options.default.json", "a") as f:
+            local_options = json.load(f)
     ydl_opts = {
-        "format": "bestaudio/best",
         "outtmpl": output_template.as_posix(),
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "m4a",
-            },
-            {
-                "key": "EmbedThumbnail",
-            },
-            {
-                "key": "FFmpegMetadata",
-            },
-        ],
         "progress_hooks": [yt_dlp_monitor],
+        **local_options,
     }
 
     # Get already downloaded songs

@@ -1,8 +1,8 @@
 /youtube-music-history-downloader.iml
 /.idea/
 
-# Ignore all in config except .gitkeep
+# Ignore all in config except ydl_options.default.json
 /config/*
-!/config/.gitkeep
+!/config/ydl_options.default.json
 
 /output/

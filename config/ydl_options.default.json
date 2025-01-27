@@ -1,0 +1,15 @@
+{
+  "format": "bestaudio/best",
+  "postprocessors": [
+    {
+      "key": "FFmpegExtractAudio",
+      "preferredcodec": "m4a"
+    },
+    {
+      "key": "EmbedThumbnail"
+    },
+    {
+      "key": "FFmpegMetadata"
+    }
+  ]
+}
