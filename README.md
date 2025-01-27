@@ -32,3 +32,23 @@
    -v "$(pwd)/output:/app/output" \
    youtube-music-history-downloader
    ```
+   
+# Docker compose
+
+Copy this to your `docker-compose.yml` file:
+```yaml
+services:
+  youtube-music-history-downloader:
+    image: youtube-music-history-downloader
+    container_name: youtube-music-history-downloader
+    volumes:
+      - ./config:/app/config
+      - ./output:/app/output
+    stdin_open: true
+    tty: true
+```
+
+And run:
+```bash
+docker-compose up
+```

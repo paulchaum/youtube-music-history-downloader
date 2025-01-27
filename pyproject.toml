@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 ytmusicapi = "^1.9.1"
 yt-dlp = "^2025.1.26"
+schedule = "^1.2.2"
 
 
 [build-system]

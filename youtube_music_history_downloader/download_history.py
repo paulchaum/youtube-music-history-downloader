@@ -1,8 +1,10 @@
 import json
+import time
 from datetime import datetime
 from os import PathLike
 from pathlib import Path
 
+import schedule
 from yt_dlp import YoutubeDL
 
 from youtube_music_history_downloader import config
@@ -80,7 +82,13 @@ def main():
     download_history()
 
 if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description='Download Youtube Music history.')
+    # Schedule the download_history function to run every 4 hours
+    schedule.every(4).hours.do(main)
 
+    # Run main() at the start
     main()
+
+    # Keep the script running
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

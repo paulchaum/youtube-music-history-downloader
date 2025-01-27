@@ -10,7 +10,7 @@ if [ ! -f config/oauth.json ]; then
   CLIENT_SECRET=$(jq -r '.installed.client_secret' config/client_secret.json)
 
   # Run the OAuth setup with the extracted credentials
-  poetry run ytmusicapi oauth --file config/oauth.json --client-id "$CLIENT_ID" --client-secret "$CLIENT_SECRET"
+  poetry run ytmusicapi oauth --file config/oauth.json --client-id "$CLIENT_ID" --client-secret "$CLIENT_SECRET" || true
 fi
 
 # Run the main script
