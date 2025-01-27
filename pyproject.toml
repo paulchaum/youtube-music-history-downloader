@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "youtube-music-history-downloader"
+version = "0.1.0"
+description = ""
+authors = ["Paul <paul.chaumeilv@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ytmusicapi = "^1.9.1"
+yt-dlp = "^2025.1.26"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

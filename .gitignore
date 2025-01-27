@@ -1,0 +1,8 @@
+/youtube-music-history-downloader.iml
+/.idea/
+
+# Ignore all in .local except .gitkeep
+/.local/*
+!/.local/.gitkeep
+
+/output/
