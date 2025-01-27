@@ -1,7 +1,7 @@
 import json
+import os
 import time
 from datetime import datetime
-from os import PathLike
 from pathlib import Path
 
 import schedule
@@ -76,8 +76,8 @@ def main():
     download_history()
 
 if __name__ == "__main__":
-    # Schedule the download_history function to run every 4 hours
-    schedule.every(4).hours.do(main)
+    # Schedule the download_history function to run every N minutes
+    schedule.every(int(os.environ.get("SLEEP_MINUTES", "240"))).minutes.do(main)
 
     # Run main() at the start
     main()
