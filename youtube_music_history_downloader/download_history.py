@@ -40,10 +40,10 @@ def download_history():
 
     output_template = output_dir / "%(title)s.%(ext)s"
     if (config.ROOT_DIR / "config/ydl_options.custom.json").exists():
-        with open(config.ROOT_DIR / "config/ydl_options.custom.json", "a") as f:
+        with open(config.ROOT_DIR / "config/ydl_options.custom.json") as f:
             local_options = json.load(f)
     else:
-        with open(config.ROOT_DIR / "config/ydl_options.default.json", "a") as f:
+        with open(config.ROOT_DIR / "config/ydl_options.default.json") as f:
             local_options = json.load(f)
     ydl_opts = {
         "outtmpl": output_template.as_posix(),
